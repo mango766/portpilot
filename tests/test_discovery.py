@@ -24,11 +24,11 @@ def test_service_display_name_uses_cwd() -> None:
 
 
 def test_discover_services_returns_list() -> None:
-    services = discover_services(exclude_ports=[6666])
+    services = discover_services(exclude_ports=[7777])
     # We can't assert specific ports (depends on environment), but the call
     # must succeed and return a list of Service objects.
     assert isinstance(services, list)
     for svc in services:
         assert isinstance(svc, Service)
         assert svc.port > 0
-        assert 6666 not in (svc.port,)
+        assert svc.port != 7777

@@ -23,7 +23,12 @@ from .prober import probe_services
 # Configuration
 # ---------------------------------------------------------------------------
 
-DEFAULT_PORT = 6666
+# NOTE on default port choice:
+#   We previously used 6666, but Chromium / Firefox hard-block that port
+#   (it's IRC's well-known port, on the browsers' "restricted" list).
+#   7777 is unassigned in /etc/services for HTTP, not in any browser
+#   blacklist, and easy to remember.
+DEFAULT_PORT = 7777
 DEFAULT_HOST = "127.0.0.1"
 CACHE_TTL_SECONDS = 5.0  # avoid hammering psutil on rapid refreshes
 

@@ -25,7 +25,7 @@ By 4 PM you have **no idea what's running where**.
 
 PortPilot solves this in the simplest way possible:
 
-> **One URL: `http://localhost:6666`. All your services, beautifully listed. One click to open any of them.**
+> **One URL: `http://localhost:7777`. All your services, beautifully listed. One click to open any of them.**
 
 ## 🌟 Features
 
@@ -68,7 +68,7 @@ PortPilot solves this in the simplest way possible:
 ./scripts/start.sh
 ```
 
-Then open **<http://localhost:6666>** in your browser.
+Then open **<http://localhost:7777>** in your browser.
 
 ### Option 2: Manual
 
@@ -81,7 +81,7 @@ python -m portpilot.server
 
 ```bash
 pip install -e .
-portpilot --port 6666
+portpilot --port 7777
 ```
 
 ## ⚙️ Configuration
@@ -91,14 +91,20 @@ PortPilot is intentionally config-free. The only knobs are CLI flags:
 | Flag        | Default     | Description                               |
 | ----------- | ----------- | ----------------------------------------- |
 | `--host`    | `127.0.0.1` | Interface to bind. Keep loopback for safety. |
-| `--port`    | `6666`      | Dashboard port.                           |
+| `--port`    | `7777`      | Dashboard port.                           |
 | `--reload`  | _off_       | Dev mode (auto-reload on code changes).   |
+
+> 💡 **Why not port 6666?** It looks tempting (memorable, "lucky 6"),
+> but Chromium and Firefox hard-block 6666/6667/6668/6669 because
+> they're IRC's well-known ports. Browsers will silently refuse to
+> connect with `ERR_UNSAFE_PORT`. We picked **7777** for compatibility.
+> Other "safe & memorable" choices: `5555`, `8888`, `9999`.
 
 ## 🧱 Architecture
 
 ```
 ┌──────────────────────────────────────────┐
-│  Browser  http://localhost:6666           │
+│  Browser  http://localhost:7777           │
 └─────────────────┬─────────────────────────┘
                   │
           ┌───────▼────────┐

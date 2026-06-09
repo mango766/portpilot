@@ -2,12 +2,12 @@
 # PortPilot launcher — runs the dashboard in the foreground.
 #
 # Usage:
-#   ./scripts/start.sh                    # default port 6666
+#   ./scripts/start.sh                    # default port 7777
 #   PORT=7777 ./scripts/start.sh          # override port
 #
 set -euo pipefail
 
-PORT="${PORT:-6666}"
+PORT="${PORT:-7777}"
 HOST="${HOST:-127.0.0.1}"
 
 cd "$(dirname "$0")/.."
